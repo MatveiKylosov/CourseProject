@@ -6,8 +6,42 @@
         xmlns:local="clr-namespace:CourseProject"
         mc:Ignorable="d"
         WindowStyle="None"
-        Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        StateChanged="MainWindow_StateChanged"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        MinHeight="450" MinWidth="820" 
+        Height="450" Width="820"
+        ResizeMode="CanResizeWithGrip" AllowsTransparency="True">
+    <Border x:Name="MainBorder" Background="#302e2b" Opacity="1">
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+            <Grid x:Name="Panel" Grid.Row="0" Margin="0,0,0,0" Grid.Column="1" Background="#262522">
+                <Label Content="MazAuto" Foreground="#ffffff" FontWeight="Bold" Opacity="0.5" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15,0,0,0"/>
+                <!--Border Background="Transparent" BorderBrush="#3f3f3f" BorderThickness="0,0,0,1" CornerRadius="2" Margin="20,25,20,0" /-->
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,0,0">
+                    <Button Width="20" Height="20" Click="Minimize_Click" Content="🗕" Background="Transparent" BorderThickness="0" Foreground="#f1f1f1" FontWeight="Bold" Margin="0, 0, 0, 3"/>
+                    <Button Width="20" Height="20" Click="State_Click" Margin="2.5,0,0,0" Content="☐" Background="Transparent" BorderThickness="0" Foreground="#f1f1f1" FontWeight="Bold"/>
+                    <Button Width="20" Height="20" Margin="2.5,0,10,0" Click="Close_Click" Content="✕" Background="Transparent" BorderThickness="0" Foreground="#f1f1f1" FontWeight="Bold"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1" Margin="0,20,0,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Height="50" Width="120" Style="{StaticResource GlowButton}" Foreground="White" FontWeight="Bold" FontSize="15" Margin="5" Content="Клиенты" />
+                    <Button Height="50" Width="120" Style="{StaticResource GlowButton}" Foreground="White" FontWeight="Bold" FontSize="15" Margin="5" Content="Сотрудники"/>
+                    <Button Height="50" Width="120" Style="{StaticResource GlowButton}" Foreground="White" FontWeight="Bold" FontSize="15" Margin="5" Content="Автомобили"/>
+                    <Button Height="50" Width="120" Style="{StaticResource GlowButton}" Foreground="White" FontWeight="Bold" FontSize="15" Margin="5" Content="Акции"/>
+                    <Button Height="50" Width="120" Style="{StaticResource GlowButton}" Foreground="White" FontWeight="Bold" FontSize="15" Margin="5" Content="Продажи"/>
+                    <Button Height="50" Width="120" Style="{StaticResource GlowFilterButton}" Foreground="White" FontWeight="Bold" FontSize="15" Margin="20,5,5,5" Content="Фильтр"/>
+                </StackPanel>
+            </Grid>
+            
+        </Grid>
+    </Border>
 </Window>
