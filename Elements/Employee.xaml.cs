@@ -21,6 +21,7 @@ namespace CourseProject.Elements
     public partial class Employee : UserControl
     {
         Table_classes.Employee employee = null;
+        bool edit = false;
         public Employee(Table_classes.Employee employee = null)
         {
             InitializeComponent();
@@ -37,11 +38,79 @@ namespace CourseProject.Elements
 
                 AddGrid.Visibility = Visibility.Hidden;
             }
+            else
+            {
+                surname.Visibility = first_name.Visibility = patronymic.Visibility = post.Visibility = phone.Visibility = email.Visibility = Visibility.Hidden;
+                TBsurname.Visibility = TBfirst_name.Visibility = TBpatronymic.Visibility = TBpost.Visibility = TBphone.Visibility = TBemail.Visibility = Visibility.Visible;
+            }
         }
 
         private void Add(object sender, MouseButtonEventArgs e)
         {
+            AddGrid.Visibility = Visibility.Hidden;
 
+            AddEdit.Content = "Добавить";
+            DeleteCancel.Content = "Отмена";
         }
+
+        private void AddEdit_Click(object sender, RoutedEventArgs e)
+        {
+            if (employee != null)
+            {
+                //Изменение
+                if (edit)
+                {
+                    //Добавление SQL
+
+                    surname.Visibility = first_name.Visibility = patronymic.Visibility = post.Visibility = phone.Visibility = email.Visibility = Visibility.Visible;
+                    TBsurname.Visibility = TBfirst_name.Visibility = TBpatronymic.Visibility = TBpost.Visibility = TBphone.Visibility = TBemail.Visibility = Visibility.Hidden;
+
+                    surname.Text = TBsurname.Text;
+                    first_name.Text = TBfirst_name.Text;
+                    patronymic.Text = TBpatronymic.Text;
+                    post.Text = TBpost.Text;
+                    phone.Text = TBphone.Text;
+                    email.Text = TBemail.Text;
+
+                    edit = false;
+                }
+                else
+                {
+                    surname.Visibility = first_name.Visibility = patronymic.Visibility = post.Visibility = phone.Visibility = email.Visibility = Visibility.Hidden;
+                    TBsurname.Visibility = TBfirst_name.Visibility = TBpatronymic.Visibility = TBpost.Visibility = TBphone.Visibility = TBemail.Visibility = Visibility.Visible;
+
+                    TBsurname.Text = surname.Text;
+                    TBfirst_name.Text = first_name.Text;
+                    TBpatronymic.Text = patronymic.Text;
+                    TBpost.Text = post.Text;
+                    TBphone.Text = phone.Text;
+                    TBemail.Text = email.Text;
+
+                    DeleteCancel.Content = "Отмена";
+                    edit = true;
+                }
+            }
+            else
+            {
+                //Добавление SQL
+                MainWindow.mainWindow.OpenStaff(null, null);
+            }
+            //Добавление
+        }
+
+        private void DeleteCancel_Click(object sender, RoutedEventArgs e)
+        {
+            if (employee != null)
+            {
+                //Удаление SQL
+                MainWindow.mainWindow.OpenStaff(null, null);
+            }
+            else
+            {
+                TBsurname.Text = TBfirst_name.Text = TBpatronymic.Text = TBpost.Text = TBphone.Text = TBemail.Text = "";
+                AddGrid.Visibility = Visibility.Visible;
+            }
+        }
+
     }
 }

@@ -16,27 +16,46 @@
             <StackPanel Margin="0,0,0,20">
                 <Label Content="Сотрудник"  FontWeight="Bold" FontSize="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,10"/>
                 <TextBlock Text="Фамилия:"  FontWeight="Bold" FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
-                <TextBlock Text="Кылосов"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="surname"/>
+                <Grid>
+                    <TextBlock Text="Кылосов"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="surname"/>
+                    <TextBox  Margin="5,0,0,0" FontSize="15"  VerticalAlignment="top" Style="{StaticResource TB}" HorizontalAlignment="Left" x:Name="TBsurname" Visibility="Hidden"/>
+                </Grid>
 
                 <TextBlock Text="Имя:" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
-                <TextBlock Text="Матвей"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="first_name"/>
+                <Grid>
+                    <TextBlock Text="Матвей"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="first_name"/>
+                    <TextBox  Margin="5,0,0,0" FontSize="15"  VerticalAlignment="top" Style="{StaticResource TB}" HorizontalAlignment="Left" x:Name="TBfirst_name" Visibility="Hidden"/>
+                </Grid>
 
                 <TextBlock Text="Отчество:" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
-                <TextBlock Text="Михайлович"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="patronymic"/>
+                <Grid>
+                    <TextBlock Text="Михайлович"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="patronymic"/>
+                    <TextBox  Margin="5,0,0,0" FontSize="15"  VerticalAlignment="top" Style="{StaticResource TB}" HorizontalAlignment="Left" x:Name="TBpatronymic" Visibility="Hidden"/>
+                </Grid>
 
                 <TextBlock Text="Должность:" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
-                <TextBlock Text="Аниме"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="post"/>
+                <Grid>
+                    <TextBlock Text="Аниме"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="post"/>
+                    <TextBox  Margin="5,0,0,0" FontSize="15"  VerticalAlignment="top" Style="{StaticResource TB}" HorizontalAlignment="Left" x:Name="TBpost" Visibility="Hidden"/>
+                </Grid>
 
                 <TextBlock Text="Номер телефона:" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
-                <TextBlock Text="89322316225"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="phone"/>
+                <Grid>
+                    <TextBlock Text="89322316225"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="phone"/>
+                    <TextBox  Margin="5,0,0,0" FontSize="15"  VerticalAlignment="top" Style="{StaticResource TB}" HorizontalAlignment="Left" x:Name="TBphone" Visibility="Hidden"/>
+                </Grid>
 
                 <TextBlock Text="Электронная почта:" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
-                <TextBlock Text="matveikylosov@permaviat.ru"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="email"/>
+                <Grid>
+                    <TextBlock Text="matveikylosov@permaviat.ru"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="email"/>
+                    <TextBox  Margin="5,0,0,0" FontSize="15"  VerticalAlignment="top" Style="{StaticResource TB}" HorizontalAlignment="Left" x:Name="TBemail" Visibility="Hidden"/>
+                </Grid>
             </StackPanel>
 
+
             <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Button Content="Изменить" Width="90" Height="25" Margin="0,0,2.5,0" Style="{StaticResource FormButton}" Foreground="White"/>
-                <Button Content="Удалить"  Width="90" Height="25" Margin="2.5,0,0,0" Style="{StaticResource FormButton}" Foreground="White"/>
+                <Button Content="Изменить" Width="80" Height="25" Margin="0,0,2.5,0" Style="{StaticResource FormButton}" Foreground="White" x:Name="AddEdit" Click="AddEdit_Click"/>
+                <Button Content="Удалить"  Width="80" Height="25" Margin="2.5,0,0,0" Style="{StaticResource FormButton}" Foreground="White" x:Name="DeleteCancel" Click="DeleteCancel_Click"/>
             </StackPanel>
 
             <Grid Grid.RowSpan="2" Background="#7A7A81" x:Name="AddGrid" MouseLeftButtonDown="Add">

@@ -83,7 +83,7 @@ namespace CourseProject.Elements
                     TBprice.Text = brand.Text;
                     TBquantity.Text = brand.Text;
                     TBprice.Text = brand.Text;
-
+                    DeleteCancel.Content = "Отмена";
                     edit = true;
                 }
             }
