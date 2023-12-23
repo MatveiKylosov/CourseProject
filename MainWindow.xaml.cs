@@ -24,6 +24,10 @@ namespace CourseProject
         {
             InitializeComponent();
             this.MouseDown += Window_MouseDown;
+            for (int i = 0; i < 10; i++)
+            {
+                parent.Children.Add(new Test());
+            }
 
         }
         private void MainWindow_StateChanged(object sender, EventArgs e)
@@ -32,7 +36,7 @@ namespace CourseProject
             {
                 Panel.Margin = new Thickness(0,5,0,0);
                 this.MaxHeight = SystemParameters.WorkArea.Height + 7;
-                this.MaxWidth = SystemParameters.WorkArea.Width + 20;
+                this.MaxWidth = SystemParameters.WorkArea.Width + 7;
             }
             else if (this.WindowState == WindowState.Normal)
             {
@@ -52,6 +56,10 @@ namespace CourseProject
 
         private void Minimize_Click(object sender, RoutedEventArgs e) => Application.Current.MainWindow.WindowState = WindowState.Minimized;
         private void Close_Click(object sender, RoutedEventArgs e) => this.Close();
-       
+
+        private void SearchActive(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
