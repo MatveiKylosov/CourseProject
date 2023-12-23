@@ -61,14 +61,14 @@
     <Compile Include="Elements\Client.xaml.cs">
       <DependentUpon>Client.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Elements\Promotion.xaml.cs">
-      <DependentUpon>Promotion.xaml</DependentUpon>
+    <Compile Include="Elements\Employee.xaml.cs">
+      <DependentUpon>Employee.xaml</DependentUpon>
     </Compile>
     <Compile Include="Elements\Sell.xaml.cs">
       <DependentUpon>Sell.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Elements\Staff.xaml.cs">
-      <DependentUpon>Staff.xaml</DependentUpon>
+    <Compile Include="Elements\Stock.xaml.cs">
+      <DependentUpon>Stock.xaml</DependentUpon>
     </Compile>
     <Compile Include="Table classes\Car.cs" />
     <Compile Include="Table classes\Client.cs" />
@@ -83,7 +83,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Elements\Promotion.xaml">
+    <Page Include="Elements\Employee.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -91,7 +91,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Elements\Staff.xaml">
+    <Page Include="Elements\Stock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

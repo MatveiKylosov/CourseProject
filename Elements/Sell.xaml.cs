@@ -20,9 +20,15 @@ namespace CourseProject.Elements
     /// </summary>
     public partial class Sell : UserControl
     {
-        public Sell()
+        Table_classes.Sale sale;
+        public Sell(Table_classes.Sale sale = null)
         {
             InitializeComponent();
+            this.sale = sale;
+            if(sale != null )
+            {
+                //заполнение данных
+            }
         }
     }
 }

@@ -20,11 +20,14 @@ namespace CourseProject
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        Button[] buttons;
+
         public MainWindow()
         {
             InitializeComponent();
             this.MouseDown += Window_MouseDown;
-
+            buttons = new Button[] { ButtonCar, ButtonClient, ButtonPromotion, ButtonSell, ButtonStaff };
         }
         private void MainWindow_StateChanged(object sender, EventArgs e)
         {
@@ -53,7 +56,46 @@ namespace CourseProject
         private void Minimize_Click(object sender, RoutedEventArgs e) => Application.Current.MainWindow.WindowState = WindowState.Minimized;
         private void Close_Click(object sender, RoutedEventArgs e) => this.Close();
 
+
         private void SearchActive(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void OpenClient(object sender, RoutedEventArgs e)
+        {
+            PanelOut.Children.Clear();
+            for (int i = 0; i < 10; i++)
+                PanelOut.Children.Add(new Elements.Client());
+        }
+
+        private void OpenStaff(object sender, RoutedEventArgs e)
+        {
+            PanelOut.Children.Clear();
+            for (int i = 0; i < 10; i++)
+                PanelOut.Children.Add(new Elements.Employee());
+        }
+
+        private void OpenCar(object sender, RoutedEventArgs e)
+        {
+            PanelOut.Children.Clear();
+            for (int i = 0; i < 10; i++)
+                PanelOut.Children.Add(new Elements.Car());
+        }
+
+        private void OpenPromotion(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OpenSell(object sender, RoutedEventArgs e)
+        {
+            PanelOut.Children.Clear();
+            for (int i = 0; i < 10; i++)
+                PanelOut.Children.Add(new Elements.Sell());
+        }
+
+        private void OpenFilter(object sender, RoutedEventArgs e)
         {
 
         }

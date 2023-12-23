@@ -16,13 +16,20 @@ using System.Windows.Shapes;
 namespace CourseProject.Elements
 {
     /// <summary>
-    /// Логика взаимодействия для Staff.xaml
+    /// Логика взаимодействия для Stock.xaml
     /// </summary>
-    public partial class Staff : UserControl
+    public partial class Stock : UserControl
     {
-        public Staff()
+        Table_classes.Stock stock;
+        public Stock(Table_classes.Stock stock = null)
         {
             InitializeComponent();
+            this.stock = stock;
+
+            if(stock != null )
+            {
+            //вставка данных
+            }
         }
     }
 }

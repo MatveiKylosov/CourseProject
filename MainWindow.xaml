@@ -47,8 +47,8 @@
 
             <ScrollViewer x:Name="scroll_main" Grid.Row="2" VerticalScrollBarVisibility="Auto">
                 <Grid Width="{Binding ElementName=scroll_main, Path=ActualWidth}">
-                    <WrapPanel x:Name="parent" Orientation="Horizontal" HorizontalAlignment="Center">
-                        <!-- Здесь будут ваши элементы -->
+                    <WrapPanel x:Name="PanelOut" Orientation="Horizontal" HorizontalAlignment="Center">
+
                     </WrapPanel>
                 </Grid>
             </ScrollViewer>

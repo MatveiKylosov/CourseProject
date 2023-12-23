@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CourseProject.Table_classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,16 @@ namespace CourseProject.Elements
     /// </summary>
     public partial class Client : UserControl
     {
-        public Client()
+        Table_classes.Client client;
+        public Client(Table_classes.Client client = null)
         {
             InitializeComponent();
+            this.client = client;
+
+            if (client != null)
+            {
+                //Заполнение информации
+            }
         }
     }
 }

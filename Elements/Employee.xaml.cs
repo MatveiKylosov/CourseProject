@@ -16,13 +16,20 @@ using System.Windows.Shapes;
 namespace CourseProject.Elements
 {
     /// <summary>
-    /// Логика взаимодействия для Promotion.xaml
+    /// Логика взаимодействия для Employee.xaml
     /// </summary>
-    public partial class Promotion : UserControl
+    public partial class Employee : UserControl
     {
-        public Promotion()
+        Table_classes.Employee employee;
+        public Employee(Table_classes.Employee employee = null)
         {
             InitializeComponent();
+            this.employee = employee;
+
+            if (employee != null)
+            {
+                //Заполнение информации
+            }
         }
     }
 }

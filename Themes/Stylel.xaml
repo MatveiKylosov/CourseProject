@@ -74,6 +74,27 @@
         <Setter Property="Foreground" Value="Black"/>
     </Style>
 
-
+    <Style x:Key="FormButton" TargetType="Button">
+        <!-- Установка шаблона кнопки -->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Border x:Name="GlowingBorder" Background="{TemplateBinding Background}" CornerRadius="5">
+                            <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0"/>
+                        </Border>
+                        <TextBlock Text="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="#303035"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <!-- Установка цвета фона кнопки в неактивном состоянии -->
+        <Setter Property="Background" Value="#545458"/>
+    </Style>
 
 </ResourceDictionary>

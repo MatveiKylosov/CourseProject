@@ -5,8 +5,40 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CourseProject.Elements"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+>
+    <Border CornerRadius="7" Background="#7A7A81" Margin="15">
+        <Grid Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Margin="0,0,0,20">
+                <TextBlock Text="ФИО клиента:"  FontWeight="Bold" FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
+                <TextBlock Text="Кылосов матвей михайлович"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="FIO_client"/>
+
+                <TextBlock Text="ФИО сотрудника:" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
+                <TextBlock Text="Кылосов Матвей Михайлович"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="FIO_employee"/>
+
+                <TextBlock Text="Название автомобиля" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
+                <TextBlock Text="Tayota camry"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="Name_car"/>
+
+                <TextBlock Text="Акция:" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
+                <TextBlock Text="Получи друга в подарок!"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="Name_stock"/>
+
+                <TextBlock Text="Финальная цена:" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
+                <TextBlock Text="10000.00"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="finally_price"/>
+
+                <TextBlock Text="Дата и время продажи:" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
+                <TextBlock Text="01.01.0001 00:01"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="sale_date_time"/>
+
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button Content="Изменить" Width="90" Height="25" Margin="0,0,2.5,0" Style="{StaticResource FormButton}" Foreground="White"/>
+                <Button Content="Удалить"  Width="90" Height="25" Margin="2.5,0,0,0" Style="{StaticResource FormButton}" Foreground="White"/>
+            </StackPanel>
+        </Grid>
+    </Border>
 </UserControl>

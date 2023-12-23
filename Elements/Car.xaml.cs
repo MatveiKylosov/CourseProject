@@ -20,9 +20,15 @@ namespace CourseProject.Elements
     /// </summary>
     public partial class Car : UserControl
     {
-        public Car()
+        Table_classes.Car car;
+        public Car(Table_classes.Car car = null)
         {
             InitializeComponent();
+            this.car = car;
+            if(car != null)
+            {
+                //Заполнение информации
+            }
         }
     }
 }
