@@ -29,7 +29,11 @@ namespace CourseProject.Elements
 
             if (client != null)
             {
-                //Заполнение информации
+                surname.Text = client.surname;
+                first_name.Text = client.first_name;
+                patronymic.Text = client.patronymic;
+                phone.Text = client.phone;
+                email.Text= client.email;
             }
         }
     }

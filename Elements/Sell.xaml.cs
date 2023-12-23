@@ -25,9 +25,21 @@ namespace CourseProject.Elements
         {
             InitializeComponent();
             this.sale = sale;
+
             if(sale != null )
             {
-                //заполнение данных
+                FIO_client.Text = MainWindow.mainWindow.clients.Find(x => x.ID_client == sale.ID_client).first_name;
+                FIO_employee.Text = MainWindow.mainWindow.employees.Find(x => x.ID_employee == sale.ID_employee).first_name;
+                Table_classes.Car car = MainWindow.mainWindow.cars.Find(x => x.ID_car == sale.ID_car);
+                Name_car.Text = $"{car.brand} {car.model}";
+
+                if (sale.ID_stock == -1)
+                    Name_stock.Text = "Отсутствует";
+                else 
+                    Name_stock.Text = MainWindow.mainWindow.stocks.Find(x => x.ID_stock == sale.ID_stock).ToString();
+
+                finally_price.Text = sale.finally_price.ToString();
+                sale_date_time.Text = sale.sale_date_time.ToString();
             }
         }
     }

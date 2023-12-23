@@ -73,7 +73,7 @@
     <Compile Include="Table classes\Car.cs" />
     <Compile Include="Table classes\Client.cs" />
     <Compile Include="Table classes\Stock.cs" />
-    <Compile Include="Table classes\Sell.cs" />
+    <Compile Include="Table classes\Sale.cs" />
     <Compile Include="Table classes\Employee.cs" />
     <Page Include="Elements\Car.xaml">
       <SubType>Designer</SubType>

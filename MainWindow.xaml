@@ -42,7 +42,7 @@
                     <Button Click="OpenFilter" x:Name="ButtonFilter" Height="50" Width="120" Style="{StaticResource GlowFilterButton}" Foreground="White" FontWeight="Bold" FontSize="15" Margin="20,5,5,5" Content="Фильтр"/>
                 </StackPanel>
 
-                <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0, 10, 0, 10" Width="700" Style="{StaticResource SearchTextBox}" TextChanged="SearchActive"/>
+                <TextBox  x:Name="Search" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0, 10, 0, 10" Width="700" Style="{StaticResource SearchTextBox}" TextChanged="SearchActive"/>
             </StackPanel>
 
             <ScrollViewer x:Name="scroll_main" Grid.Row="2" VerticalScrollBarVisibility="Auto">

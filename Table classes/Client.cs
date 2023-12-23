@@ -15,7 +15,7 @@ namespace CourseProject.Table_classes
         public string phone{ get; set; }
         public string email { get; set; }
 
-        Client(int ID_client, string surname, string first_name, string patronymic, string phone, string email) { 
+        public Client(int ID_client, string surname, string first_name, string patronymic, string phone, string email) { 
         
             this.ID_client = ID_client;
             this.surname = surname;

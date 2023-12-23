@@ -24,6 +24,9 @@
                 <TextBlock Text="Отчество:" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
                 <TextBlock Text="Михайлович"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="patronymic"/>
 
+                <TextBlock Text="Должность:" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
+                <TextBlock Text="Аниме"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="post"/>
+
                 <TextBlock Text="Номер телефона:" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
                 <TextBlock Text="89322316225"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="phone"/>
 

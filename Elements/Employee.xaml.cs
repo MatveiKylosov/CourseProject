@@ -28,7 +28,12 @@ namespace CourseProject.Elements
 
             if (employee != null)
             {
-                //Заполнение информации
+                surname.Text = employee.surname;
+                first_name.Text = employee.first_name;
+                patronymic.Text = employee.patronymic;
+                post.Text = employee.post;
+                phone.Text = employee.phone;
+                email.Text = employee.email;
             }
         }
     }

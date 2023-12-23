@@ -25,9 +25,14 @@ namespace CourseProject.Elements
         {
             InitializeComponent();
             this.car = car;
+
             if(car != null)
             {
-                //Заполнение информации
+                brand.Text = car.brand;
+                model.Text = car.model;
+                year_issue.Text = car.year_issue.ToString();
+                price.Text = car.price.ToString();
+                quantity.Text = car.quantity.ToString();
             }
         }
     }

@@ -25,10 +25,14 @@ namespace CourseProject.Elements
         {
             InitializeComponent();
             this.stock = stock;
-
+            
             if(stock != null )
             {
-            //вставка данных
+                name.Text = stock.name;
+                description.Text = stock.description;
+                price.Text = stock.price.ToString();
+                start_date.Text = stock.start_date.ToString();
+                end_date.Text = stock.end_date.ToString();
             }
         }
     }
