@@ -21,6 +21,7 @@ namespace CourseProject.Elements
     /// </summary>
     public partial class Client : UserControl
     {
+        bool edit = false;
         Table_classes.Client client = null;
         public Client(Table_classes.Client client = null)
         {
@@ -33,15 +34,80 @@ namespace CourseProject.Elements
                 first_name.Text = client.first_name;
                 patronymic.Text = client.patronymic;
                 phone.Text = client.phone;
-                email.Text= client.email;
+                email.Text = client.email;
 
                 AddGrid.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                surname.Visibility = first_name.Visibility = patronymic.Visibility = phone.Visibility = email.Visibility = Visibility.Hidden;
+                TBsurname.Visibility = TBfirst_name.Visibility = TBpatronymic.Visibility = TBphone.Visibility = TBemail.Visibility = Visibility.Visible;
             }
         }
 
         private void Add(object sender, MouseButtonEventArgs e)
         {
+            AddGrid.Visibility = Visibility.Hidden;
 
+            AddEdit.Content = "Добавить";
+            DeleteCancel.Content = "Cancel";
         }
+
+        private void AddEdit_Click(object sender, RoutedEventArgs e)
+        {
+            if (client != null)
+            {
+                //Изменение
+                if (edit)
+                {
+                    //Добавление SQL
+
+                    surname.Visibility = first_name.Visibility = patronymic.Visibility = phone.Visibility = email.Visibility = Visibility.Visible;
+                    TBsurname.Visibility = TBfirst_name.Visibility = TBpatronymic.Visibility = TBphone.Visibility = TBemail.Visibility = Visibility.Hidden;
+
+                    surname.Text = TBsurname.Text;
+                    first_name.Text = TBfirst_name.Text;
+                    patronymic.Text = TBpatronymic.Text;
+                    phone.Text = TBphone.Text;
+                    email.Text = TBemail.Text;
+
+                    edit = false;
+                }
+                else
+                {
+                    surname.Visibility = first_name.Visibility = patronymic.Visibility = phone.Visibility = email.Visibility = Visibility.Hidden;
+                    TBsurname.Visibility = TBfirst_name.Visibility = TBpatronymic.Visibility = TBphone.Visibility = TBemail.Visibility = Visibility.Visible;
+
+                    TBsurname.Text = surname.Text;
+                    TBfirst_name.Text = first_name.Text;
+                    TBpatronymic.Text = patronymic.Text;
+                    TBphone.Text = phone.Text;
+                    TBemail.Text = email.Text;
+
+                    edit = true;
+                }
+            }
+            else
+            {
+                //Добавление SQL
+                MainWindow.mainWindow.OpenClient(null, null);
+            }
+            //Добавление
+        }
+
+        private void DeleteCancel_Click(object sender, RoutedEventArgs e)
+        {
+            if (client != null)
+            {
+                //Удаление SQL
+                MainWindow.mainWindow.OpenClient(null, null);
+            }
+            else
+            {
+                TBsurname.Text = TBfirst_name.Text = TBpatronymic.Text = TBphone.Text = TBemail.Text = "";
+                AddGrid.Visibility = Visibility.Visible;
+            }
+        }
+
     }
 }

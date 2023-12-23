@@ -75,12 +75,12 @@ namespace CourseProject
 
         }
 
-        private void OpenFilter(object sender, RoutedEventArgs e)
+        public void OpenFilter(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void OpenClient(object sender, RoutedEventArgs e)
+        public void OpenClient(object sender, RoutedEventArgs e)
         {
             if (ActiveTabels != tabels.clients)
                 scroll_main.ScrollToTop();
@@ -94,7 +94,7 @@ namespace CourseProject
             
         }
 
-        private void OpenStaff(object sender, RoutedEventArgs e)
+        public void OpenStaff(object sender, RoutedEventArgs e)
         {
             if(ActiveTabels != tabels.employees)
                 scroll_main.ScrollToTop();
@@ -120,7 +120,7 @@ namespace CourseProject
                 PanelOut.Children.Add(new Elements.Car(x));
         }
 
-        private void OpenPromotion(object sender, RoutedEventArgs e)
+        public void OpenPromotion(object sender, RoutedEventArgs e)
         {
             if(ActiveTabels != tabels.stocks)
                 scroll_main.ScrollToTop();
@@ -132,7 +132,7 @@ namespace CourseProject
                 PanelOut.Children.Add(new Elements.Stock(x));
         }
 
-        private void OpenSell(object sender, RoutedEventArgs e)
+        public void OpenSell(object sender, RoutedEventArgs e)
         {
             if(ActiveTabels != tabels.sales)
                 scroll_main.ScrollToTop();
