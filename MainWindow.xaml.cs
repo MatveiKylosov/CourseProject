@@ -25,6 +25,7 @@ namespace CourseProject
         public List<Table_classes.Car> cars = new List<Table_classes.Car>();
         public List<Table_classes.Client> clients = new List<Table_classes.Client>();
         public List<Table_classes.Employee> employees = new List<Table_classes.Employee>();
+
         public List<Table_classes.Sale> sales = new List<Table_classes.Sale>();
         public List<Table_classes.Stock> stocks = new List<Table_classes.Stock>();
 
@@ -37,6 +38,7 @@ namespace CourseProject
             sales = 3,
             stocks = 4,
         }
+        
         tabels ActiveTabels;
 
         public MainWindow()
@@ -80,7 +82,9 @@ namespace CourseProject
 
         private void OpenClient(object sender, RoutedEventArgs e)
         {
-            scroll_main.ScrollToTop();
+            if (ActiveTabels != tabels.clients)
+                scroll_main.ScrollToTop();
+
             ActiveTabels = tabels.clients;
             PanelOut.Children.Clear();
 
@@ -92,7 +96,8 @@ namespace CourseProject
 
         private void OpenStaff(object sender, RoutedEventArgs e)
         {
-            scroll_main.ScrollToTop();
+            if(ActiveTabels != tabels.employees)
+                scroll_main.ScrollToTop();
             ActiveTabels = tabels.employees;
             PanelOut.Children.Clear();
 
@@ -102,9 +107,11 @@ namespace CourseProject
 
         }
 
-        private void OpenCar(object sender, RoutedEventArgs e)
+        public void OpenCar(object sender, RoutedEventArgs e)
         {
-            scroll_main.ScrollToTop();
+            if(ActiveTabels != tabels.cars)
+                scroll_main.ScrollToTop();
+
             ActiveTabels = tabels.cars;
             PanelOut.Children.Clear();
 
@@ -115,7 +122,9 @@ namespace CourseProject
 
         private void OpenPromotion(object sender, RoutedEventArgs e)
         {
-            scroll_main.ScrollToTop();
+            if(ActiveTabels != tabels.stocks)
+                scroll_main.ScrollToTop();
+
             ActiveTabels = tabels.stocks;
             PanelOut.Children.Clear();
 
@@ -125,7 +134,9 @@ namespace CourseProject
 
         private void OpenSell(object sender, RoutedEventArgs e)
         {
-            scroll_main.ScrollToTop();
+            if(ActiveTabels != tabels.sales)
+                scroll_main.ScrollToTop();
+
             ActiveTabels = tabels.sales;
             PanelOut.Children.Clear();
 

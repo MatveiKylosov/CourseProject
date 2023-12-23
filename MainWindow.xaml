@@ -43,7 +43,7 @@
                 </StackPanel>
             </StackPanel>
 
-            <ScrollViewer x:Name="scroll_main" Grid.Row="2" VerticalScrollBarVisibility="Auto">
+            <ScrollViewer x:Name="scroll_main" Grid.Row="2" VerticalScrollBarVisibility="Auto" Margin="0,20,0,0">
                 <Grid Width="{Binding ElementName=scroll_main, Path=ActualWidth}">
                     <WrapPanel x:Name="PanelOut" Orientation="Horizontal" HorizontalAlignment="Center">
 

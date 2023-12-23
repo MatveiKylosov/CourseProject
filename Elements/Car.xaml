@@ -13,25 +13,41 @@
             </Grid.RowDefinitions>
 
             <StackPanel Margin="0,0,0,20">
+                <Label Content="Автомобиль"  FontWeight="Bold" FontSize="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,5,0,10"/>
                 <TextBlock Text="Марка:"  FontWeight="Bold" FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
-                <TextBlock Text="Toyota"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="brand"/>
+                <Grid>
+                    <TextBlock Text="Toyota"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="brand"/>
+                    <TextBox  Margin="5,0,0,0" FontSize="15"  VerticalAlignment="top" Style="{StaticResource TB}" HorizontalAlignment="Left" x:Name="TBbrand" Visibility="Hidden"/>
+                </Grid>
 
                 <TextBlock Text="Модель автомобиля:" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
-                <TextBlock Text="Camry"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="model"/>
-
+                <Grid>
+                    <TextBlock Text="Camry"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="model"/>
+                    <TextBox  Margin="5,0,0,0" FontSize="15"  VerticalAlignment="top" Style="{StaticResource TB}" HorizontalAlignment="Left" x:Name="TBmodel" Visibility="Hidden"/>
+                </Grid>
+                
                 <TextBlock Text="Год выпуска:" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
-                <TextBlock Text="2020"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="year_issue"/>
+                <Grid>
+                    <TextBlock Text="2020"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="year_issue"/>
+                    <TextBox  Margin="5,0,0,0" FontSize="15"  VerticalAlignment="top" Style="{StaticResource TB}" HorizontalAlignment="Left" x:Name="TByear_issue" Visibility="Hidden"/>
+                </Grid>
 
                 <TextBlock Text="Стоимость автомобиля:" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
-                <TextBlock Text="25000.00"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="price"/>
+                <Grid>
+                    <TextBlock Text="25000.00"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="price"/>
+                    <TextBox  Margin="5,0,0,0" FontSize="15"  VerticalAlignment="top" Style="{StaticResource TB}" HorizontalAlignment="Left" x:Name="TBprice" Visibility="Hidden"/>
+                </Grid>
 
                 <TextBlock Text="Количество:" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
-                <TextBlock Text="10"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="quantity"/>
+                <Grid>
+                    <TextBlock Text="10"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="quantity"/>
+                    <TextBox  Margin="5,0,0,0" FontSize="15"  VerticalAlignment="top" Style="{StaticResource TB}" HorizontalAlignment="Left" x:Name="TBquantity" Visibility="Hidden"/>
+                </Grid>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0">
-                <Button Content="Изменить" Width="80" Height="25" Margin="0,0,2.5,0" Style="{StaticResource FormButton}" Foreground="White"/>
-                <Button Content="Удалить"  Width="80" Height="25" Margin="2.5,0,0,0" Style="{StaticResource FormButton}" Foreground="White"/>
+                <Button Content="Изменить" Width="80" Height="25" Margin="0,0,2.5,0" Style="{StaticResource FormButton}" Foreground="White" x:Name="AddEdit" Click="AddEdit_Click"/>
+                <Button Content="Удалить"  Width="80" Height="25" Margin="2.5,0,0,0" Style="{StaticResource FormButton}" Foreground="White" x:Name="DeleteCancel" Click="DeleteCancel_Click"/>
             </StackPanel>
 
             <Grid Grid.RowSpan="2" Background="#7A7A81" x:Name="AddGrid" MouseLeftButtonDown="Add">
