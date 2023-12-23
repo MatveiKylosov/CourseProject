@@ -24,10 +24,6 @@ namespace CourseProject
         {
             InitializeComponent();
             this.MouseDown += Window_MouseDown;
-            for (int i = 0; i < 10; i++)
-            {
-                parent.Children.Add(new Test());
-            }
 
         }
         private void MainWindow_StateChanged(object sender, EventArgs e)

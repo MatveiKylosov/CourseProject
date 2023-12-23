@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CourseProject
+namespace CourseProject.Elements
 {
     /// <summary>
-    /// Логика взаимодействия для Test.xaml
+    /// Логика взаимодействия для Staff.xaml
     /// </summary>
-    public partial class Test : UserControl
+    public partial class Staff : UserControl
     {
-        public Test()
+        public Staff()
         {
             InitializeComponent();
         }
