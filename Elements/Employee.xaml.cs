@@ -102,8 +102,29 @@ namespace CourseProject.Elements
         {
             if (employee != null)
             {
-                //Удаление SQL
-                MainWindow.mainWindow.OpenStaff(null, null);
+                if (edit)
+                {
+                    surname.Visibility = first_name.Visibility = patronymic.Visibility = post.Visibility = phone.Visibility = email.Visibility = Visibility.Visible;
+                    TBsurname.Visibility = TBfirst_name.Visibility = TBpatronymic.Visibility = TBpost.Visibility = TBphone.Visibility = TBemail.Visibility = Visibility.Hidden;
+
+
+                    TBsurname.Text = surname.Text;
+                    TBfirst_name.Text = first_name.Text;
+                    TBpatronymic.Text = patronymic.Text;
+                    TBpost.Text = post.Text;
+                    TBphone.Text = phone.Text;
+                    TBemail.Text = email.Text;
+
+                    DeleteCancel.Content = "Удаление";
+
+                    edit = false;
+                }
+                else
+                {
+                    //Удаление SQL
+                    MessageBox.Show("Удаление");
+                    MainWindow.mainWindow.OpenCar(null, null);
+                }
             }
             else
             {

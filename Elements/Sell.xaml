@@ -15,29 +15,46 @@
 
             <StackPanel Margin="0,0,0,20">
                 <TextBlock Text="ФИО клиента:"  FontWeight="Bold" FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
-                <TextBlock Text="Кылосов матвей михайлович"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="FIO_client"/>
+                <Grid>
+                    <TextBlock Text="Кылосов матвей михайлович"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="FIO_client"/>
+                    <TextBox  Margin="5,0,0,0" FontSize="15"  VerticalAlignment="top" Style="{StaticResource TB}" HorizontalAlignment="Left" x:Name="TBFIO_client" Visibility="Hidden"/>
+                </Grid>
 
                 <TextBlock Text="ФИО сотрудника:" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
-                <TextBlock Text="Кылосов Матвей Михайлович"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="FIO_employee"/>
+                <Grid>
+                    <TextBlock Text="Кылосов Матвей Михайлович"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="FIO_employee"/>
+                    <TextBox  Margin="5,0,0,0" FontSize="15"  VerticalAlignment="top" Style="{StaticResource TB}" HorizontalAlignment="Left" x:Name="TBFIO_employee" Visibility="Hidden"/>
+                </Grid>
 
                 <TextBlock Text="Название автомобиля" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
-                <TextBlock Text="Tayota camry"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="Name_car"/>
+                <Grid>
+                    <TextBlock Text="Tayota camry"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="Name_car"/>
+                    <TextBox  Margin="5,0,0,0" FontSize="15"  VerticalAlignment="top" Style="{StaticResource TB}" HorizontalAlignment="Left" x:Name="TBName_car" Visibility="Hidden"/>
+                </Grid>
 
                 <TextBlock Text="Акция:" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
-                <TextBlock Text="Получи друга в подарок!"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="Name_stock"/>
+                <Grid>
+                    <TextBlock Text="Получи друга в подарок!"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="Name_stock"/>
+                    <TextBox  Margin="5,0,0,0" FontSize="15"  VerticalAlignment="top" Style="{StaticResource TB}" HorizontalAlignment="Left" x:Name="TBName_stock" Visibility="Hidden"/>
+                </Grid>
 
                 <TextBlock Text="Финальная цена:" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
-                <TextBlock Text="10000.00"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="finally_price"/>
+                <Grid>
+                    <TextBlock Text="10000.00"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="finally_price"/>
+                    <TextBox  Margin="5,0,0,0" FontSize="15"  VerticalAlignment="top" Style="{StaticResource TB}" HorizontalAlignment="Left" x:Name="TBfinally_price" Visibility="Hidden"/>
+                </Grid>
 
                 <TextBlock Text="Дата и время продажи:" FontWeight="Bold" FontSize="15" Margin="0,5,0,0" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left"/>
-                <TextBlock Text="01.01.0001 00:01"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="sale_date_time"/>
-
-
+                <Grid>
+                    <TextBlock Text="01.01.0001 00:01"  Margin="5,0,0,0"  FontSize="15" Foreground="White" VerticalAlignment="top" HorizontalAlignment="Left" x:Name="sale_date_time"/>
+                    <TextBox  Margin="5,0,0,0" FontSize="15"  VerticalAlignment="top" Style="{StaticResource TB}" HorizontalAlignment="Left" x:Name="TBsale_date_time" Visibility="Hidden"/>
+                </Grid>
             </StackPanel>
 
+
             <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Button Content="Изменить" Width="90" Height="25" Margin="0,0,2.5,0" Style="{StaticResource FormButton}" Foreground="White"/>
-                <Button Content="Удалить"  Width="90" Height="25" Margin="2.5,0,0,0" Style="{StaticResource FormButton}" Foreground="White"/>
+                <Button Content="Изменить" Width="80" Height="25" Margin="0,0,2.5,0" Style="{StaticResource FormButton}" Foreground="White" x:Name="AddEdit" Click="AddEdit_Click"/>
+                <Button Content="Удалить"  Width="80" Height="25" Margin="2.5,0,0,0" Style="{StaticResource FormButton}" Foreground="White" x:Name="DeleteCancel" Click="DeleteCancel_Click"/>
             </StackPanel>
 
             <Grid Grid.RowSpan="2" Background="#7A7A81" x:Name="AddGrid" MouseLeftButtonDown="Add">

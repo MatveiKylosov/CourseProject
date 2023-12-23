@@ -50,7 +50,7 @@ namespace CourseProject.Elements
             AddGrid.Visibility = Visibility.Hidden;
 
             AddEdit.Content = "Добавить";
-            DeleteCancel.Content = "Cancel";
+            DeleteCancel.Content = "Отмена";
         }
 
         private void AddEdit_Click(object sender, RoutedEventArgs e)
@@ -83,7 +83,7 @@ namespace CourseProject.Elements
                     TBpatronymic.Text = patronymic.Text;
                     TBphone.Text = phone.Text;
                     TBemail.Text = email.Text;
-
+                    DeleteCancel.Content = "Отмена";
                     edit = true;
                 }
             }
@@ -99,8 +99,27 @@ namespace CourseProject.Elements
         {
             if (client != null)
             {
-                //Удаление SQL
-                MainWindow.mainWindow.OpenClient(null, null);
+                if (edit)
+                {
+                    surname.Visibility = first_name.Visibility = patronymic.Visibility = phone.Visibility = email.Visibility = Visibility.Visible;
+                    TBsurname.Visibility = TBfirst_name.Visibility = TBpatronymic.Visibility = TBphone.Visibility = TBemail.Visibility = Visibility.Hidden;
+
+                    TBsurname.Text = surname.Text;
+                    TBfirst_name.Text = first_name.Text;
+                    TBpatronymic.Text = patronymic.Text;
+                    TBphone.Text = phone.Text;
+                    TBemail.Text = email.Text;
+
+                    DeleteCancel.Content = "Удаление";
+
+                    edit = false;
+                }
+                else
+                {
+                    //Удаление SQL
+                    MessageBox.Show("Удаление");
+                    MainWindow.mainWindow.OpenCar(null, null);
+                }
             }
             else
             {

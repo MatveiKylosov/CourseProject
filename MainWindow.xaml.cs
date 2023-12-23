@@ -128,6 +128,7 @@ namespace CourseProject
             ActiveTabels = tabels.stocks;
             PanelOut.Children.Clear();
 
+            PanelOut.Children.Add(new Elements.Stock());
             foreach (Table_classes.Stock x in stocks)
                 PanelOut.Children.Add(new Elements.Stock(x));
         }

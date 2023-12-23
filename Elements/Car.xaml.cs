@@ -48,7 +48,7 @@ namespace CourseProject.Elements
             AddGrid.Visibility = Visibility.Hidden;
 
             AddEdit.Content = "Добавить";
-            DeleteCancel.Content = "Cancel";
+            DeleteCancel.Content = "Отмена";
         }
 
         private void AddEdit_Click(object sender, RoutedEventArgs e)
@@ -99,8 +99,27 @@ namespace CourseProject.Elements
         {
             if(car != null)
             {
-                //Удаление SQL
-                MainWindow.mainWindow.OpenCar(null, null);
+                if (edit)
+                {
+                    brand.Visibility = model.Visibility = year_issue.Visibility = price.Visibility = quantity.Visibility = Visibility.Visible;
+                    TBbrand.Visibility = TBmodel.Visibility = TByear_issue.Visibility = TBprice.Visibility = TBquantity.Visibility = Visibility.Hidden;
+
+                    TBbrand.Text = brand.Text;
+                    TBmodel.Text = model.Text;
+                    TByear_issue.Text = year_issue.Text;
+                    TBprice.Text = brand.Text;
+                    TBquantity.Text = brand.Text;
+                    TBprice.Text = brand.Text;
+                    DeleteCancel.Content = "Удаление";
+
+                    edit = false;
+                }
+                else
+                {
+                    //Удаление SQL
+                    MessageBox.Show("Удаление");
+                    MainWindow.mainWindow.OpenCar(null, null);
+                }
             }
             else
             {
