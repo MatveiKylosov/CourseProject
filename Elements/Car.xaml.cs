@@ -20,7 +20,7 @@ namespace CourseProject.Elements
     /// </summary>
     public partial class Car : UserControl
     {
-        Table_classes.Car car;
+        Table_classes.Car car = null;
         public Car(Table_classes.Car car = null)
         {
             InitializeComponent();
@@ -33,7 +33,13 @@ namespace CourseProject.Elements
                 year_issue.Text = car.year_issue.ToString();
                 price.Text = car.price.ToString();
                 quantity.Text = car.quantity.ToString();
+                AddGrid.Visibility = Visibility.Hidden;
             }
+        }
+
+        private void Add(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

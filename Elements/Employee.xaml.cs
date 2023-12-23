@@ -20,7 +20,7 @@ namespace CourseProject.Elements
     /// </summary>
     public partial class Employee : UserControl
     {
-        Table_classes.Employee employee;
+        Table_classes.Employee employee = null;
         public Employee(Table_classes.Employee employee = null)
         {
             InitializeComponent();
@@ -34,7 +34,14 @@ namespace CourseProject.Elements
                 post.Text = employee.post;
                 phone.Text = employee.phone;
                 email.Text = employee.email;
+
+                AddGrid.Visibility = Visibility.Hidden;
             }
+        }
+
+        private void Add(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

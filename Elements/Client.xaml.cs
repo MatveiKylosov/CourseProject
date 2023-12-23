@@ -21,7 +21,7 @@ namespace CourseProject.Elements
     /// </summary>
     public partial class Client : UserControl
     {
-        Table_classes.Client client;
+        Table_classes.Client client = null;
         public Client(Table_classes.Client client = null)
         {
             InitializeComponent();
@@ -34,7 +34,14 @@ namespace CourseProject.Elements
                 patronymic.Text = client.patronymic;
                 phone.Text = client.phone;
                 email.Text= client.email;
+
+                AddGrid.Visibility = Visibility.Hidden;
             }
+        }
+
+        private void Add(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

@@ -39,6 +39,10 @@
                 <Button Content="Изменить" Width="90" Height="25" Margin="0,0,2.5,0" Style="{StaticResource FormButton}" Foreground="White"/>
                 <Button Content="Удалить"  Width="90" Height="25" Margin="2.5,0,0,0" Style="{StaticResource FormButton}" Foreground="White"/>
             </StackPanel>
+
+            <Grid Grid.RowSpan="2" Background="#7A7A81" x:Name="AddGrid" MouseLeftButtonDown="Add">
+                <Image Source="/Images/plus.png" Width="100" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
         </Grid>
     </Border>
 </UserControl>

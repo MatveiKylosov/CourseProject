@@ -38,6 +38,7 @@ namespace CourseProject
             stocks = 4,
         }
         tabels ActiveTabels;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -72,7 +73,6 @@ namespace CourseProject
 
         }
 
-
         private void OpenFilter(object sender, RoutedEventArgs e)
         {
 
@@ -80,9 +80,11 @@ namespace CourseProject
 
         private void OpenClient(object sender, RoutedEventArgs e)
         {
+            scroll_main.ScrollToTop();
             ActiveTabels = tabels.clients;
             PanelOut.Children.Clear();
 
+            PanelOut.Children.Add(new Elements.Client());
             foreach (Table_classes.Client x in clients)
                 PanelOut.Children.Add(new Elements.Client(x));
             
@@ -90,9 +92,11 @@ namespace CourseProject
 
         private void OpenStaff(object sender, RoutedEventArgs e)
         {
+            scroll_main.ScrollToTop();
             ActiveTabels = tabels.employees;
             PanelOut.Children.Clear();
 
+            PanelOut.Children.Add(new Elements.Employee());
             foreach (Table_classes.Employee x in employees)
                 PanelOut.Children.Add(new Elements.Employee(x));
 
@@ -100,18 +104,18 @@ namespace CourseProject
 
         private void OpenCar(object sender, RoutedEventArgs e)
         {
+            scroll_main.ScrollToTop();
             ActiveTabels = tabels.cars;
             PanelOut.Children.Clear();
-            for (int i = 0; i < 10; i++)
-                PanelOut.Children.Add(new Elements.Car());
 
-
+            PanelOut.Children.Add(new Elements.Car());
             foreach (Table_classes.Car x in cars)
                 PanelOut.Children.Add(new Elements.Car(x));
         }
 
         private void OpenPromotion(object sender, RoutedEventArgs e)
         {
+            scroll_main.ScrollToTop();
             ActiveTabels = tabels.stocks;
             PanelOut.Children.Clear();
 
@@ -121,9 +125,11 @@ namespace CourseProject
 
         private void OpenSell(object sender, RoutedEventArgs e)
         {
+            scroll_main.ScrollToTop();
             ActiveTabels = tabels.sales;
             PanelOut.Children.Clear();
 
+            PanelOut.Children.Add(new Elements.Sell());
             foreach (Table_classes.Sale x in sales)
                 PanelOut.Children.Add(new Elements.Sell(x));
         }

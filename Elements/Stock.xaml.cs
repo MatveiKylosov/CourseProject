@@ -33,7 +33,13 @@ namespace CourseProject.Elements
                 price.Text = stock.price.ToString();
                 start_date.Text = stock.start_date.ToString();
                 end_date.Text = stock.end_date.ToString();
+                AddGrid.Visibility = Visibility.Hidden;
             }
+        }
+
+        private void Add(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

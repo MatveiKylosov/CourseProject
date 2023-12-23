@@ -20,7 +20,7 @@ namespace CourseProject.Elements
     /// </summary>
     public partial class Sell : UserControl
     {
-        Table_classes.Sale sale;
+        Table_classes.Sale sale = null;
         public Sell(Table_classes.Sale sale = null)
         {
             InitializeComponent();
@@ -35,7 +35,14 @@ namespace CourseProject.Elements
                 Name_stock.Text = sale.stock.name;
                 finally_price.Text = sale.finally_price.ToString();
                 sale_date_time.Text = sale.sale_date_time.ToString();
+
+                AddGrid.Visibility = Visibility.Hidden;
             }
+        }
+
+        private void Add(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }
