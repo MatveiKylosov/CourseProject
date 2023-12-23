@@ -1,4 +1,5 @@
-﻿using CourseProject.Table_classes;
+﻿using CourseProject.Elements;
+using CourseProject.Table_classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,11 +22,12 @@ namespace CourseProject
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<Table_classes.Car> cars;
-        public List<Table_classes.Client> clients;
-        public List<Table_classes.Employee> employees;
-        public List<Table_classes.Sale> sales;
-        public List<Table_classes.Stock> stocks;
+        public List<Table_classes.Car> cars = new List<Table_classes.Car>();
+        public List<Table_classes.Client> clients = new List<Table_classes.Client>();
+        public List<Table_classes.Employee> employees = new List<Table_classes.Employee>();
+        public List<Table_classes.Sale> sales = new List<Table_classes.Sale>();
+        public List<Table_classes.Stock> stocks = new List<Table_classes.Stock>();
+
         public static MainWindow mainWindow;
 
         enum tabels { 
@@ -52,51 +54,24 @@ namespace CourseProject
 
             for (int i = 0; i < 10; i++)
             {
-                cars.Add(new Car(i, brands[random.Next(brands.Length)], models[random.Next(models.Length)], random.Next(2000, 2022), random.Next(50000, 100000), random.Next(1, 5)));
-                clients.Add(new Client(i, surnames[random.Next(surnames.Length)], names[random.Next(names.Length)], patronymics[random.Next(patronymics.Length)], "+7" + random.Next(100000000, 999999999).ToString(), emails[random.Next(emails.Length)]));
-                employees.Add(new Employee(i, surnames[random.Next(surnames.Length)], names[random.Next(names.Length)], patronymics[random.Next(patronymics.Length)], posts[random.Next(posts.Length)], "+7" + random.Next(100000000, 999999999).ToString(), emails[random.Next(emails.Length)]));
-                sales.Add(new Sale(i, random.Next(10), random.Next(10), random.Next(10), random.Next(10), random.Next(10), random.Next(50000, 100000), DateTime.Now.AddDays(random.Next(-365, 365))));
-                stocks.Add(new Stock(i, "Stock" + i.ToString(), "Description" + i.ToString(), random.Next(1000, 5000), DateTime.Now.AddDays(random.Next(-365, 365)), DateTime.Now.AddDays(random.Next(-365, 365))));
+                Table_classes.Car car = new Table_classes.Car(i, brands[random.Next(brands.Length)], models[random.Next(models.Length)], random.Next(2000, 2022), random.Next(50000, 100000), random.Next(1, 5));
+                cars.Add(car);
+
+                Table_classes.Client client = new Table_classes.Client(i, surnames[random.Next(surnames.Length)], names[random.Next(names.Length)], patronymics[random.Next(patronymics.Length)], "+7" + random.Next(100000000, 999999999).ToString(), emails[random.Next(emails.Length)]);
+                clients.Add(client);
+
+                Table_classes.Employee employee = new Table_classes.Employee(i, surnames[random.Next(surnames.Length)], names[random.Next(names.Length)], patronymics[random.Next(patronymics.Length)], posts[random.Next(posts.Length)], "+7" + random.Next(100000000, 999999999).ToString(), emails[random.Next(emails.Length)]);
+                employees.Add(employee);
+
+                Table_classes.Stock stock = new Table_classes.Stock(i, "Stock" + i.ToString(), "Description" + i.ToString(), random.Next(1000, 5000), DateTime.Now.AddDays(random.Next(-365, 365)), DateTime.Now.AddDays(random.Next(-365, 365)));
+                stocks.Add(stock);
+
+                Table_classes.Sale sale = new Table_classes.Sale(i, client, employee, car, stock, random.Next(50000, 100000), DateTime.Now.AddDays(random.Next(-365, 365)));
+                sales.Add(sale);
             }
 
         }
 
-
-        private void SearchActive(object sender, TextChangedEventArgs e)
-        {
-            if (Search.Text.Length == Search.Text.Count(x => x == ' '))
-                return;
-
-            switch (ActiveTabels)
-            {
-                case tabels.cars:
-                    {
-                        PanelOut.Children.Clear();
-                        foreach (Table_classes.Car x in cars)
-                        {
-                            if (x.brand.Contains(Search.Text) ||
-                               x.model.Contains(Search.Text) ||
-                               x.year_issue.ToString().Contains(Search.Text) ||
-                               x.price.ToString().Contains(Search.Text) ||
-                               x.quantity.ToString().Contains(Search.Text)
-                               )
-                                PanelOut.Children.Add(new Elements.Car(x));
-                                
-                        }
-                        break;
-                    }
-                case tabels.clients:
-                    break;
-                case tabels.employees:
-                    break;
-                case tabels.sales:
-                    break;
-                case tabels.stocks:
-                    break;
-            }
-
-            
-        }
 
         private void OpenFilter(object sender, RoutedEventArgs e)
         {
@@ -107,16 +82,20 @@ namespace CourseProject
         {
             ActiveTabels = tabels.clients;
             PanelOut.Children.Clear();
-            for (int i = 0; i < 10; i++)
-                PanelOut.Children.Add(new Elements.Client());
+
+            foreach (Table_classes.Client x in clients)
+                PanelOut.Children.Add(new Elements.Client(x));
+            
         }
 
         private void OpenStaff(object sender, RoutedEventArgs e)
         {
             ActiveTabels = tabels.employees;
             PanelOut.Children.Clear();
-            for (int i = 0; i < 10; i++)
-                PanelOut.Children.Add(new Elements.Employee());
+
+            foreach (Table_classes.Employee x in employees)
+                PanelOut.Children.Add(new Elements.Employee(x));
+
         }
 
         private void OpenCar(object sender, RoutedEventArgs e)
@@ -125,22 +104,28 @@ namespace CourseProject
             PanelOut.Children.Clear();
             for (int i = 0; i < 10; i++)
                 PanelOut.Children.Add(new Elements.Car());
+
+
+            foreach (Table_classes.Car x in cars)
+                PanelOut.Children.Add(new Elements.Car(x));
         }
 
         private void OpenPromotion(object sender, RoutedEventArgs e)
         {
             ActiveTabels = tabels.stocks;
             PanelOut.Children.Clear();
-            for (int i = 0; i < 10; i++)
-                PanelOut.Children.Add(new Elements.Stock());
+
+            foreach (Table_classes.Stock x in stocks)
+                PanelOut.Children.Add(new Elements.Stock(x));
         }
 
         private void OpenSell(object sender, RoutedEventArgs e)
         {
             ActiveTabels = tabels.sales;
             PanelOut.Children.Clear();
-            for (int i = 0; i < 10; i++)
-                PanelOut.Children.Add(new Elements.Sell());
+
+            foreach (Table_classes.Sale x in sales)
+                PanelOut.Children.Add(new Elements.Sell(x));
         }
 
 

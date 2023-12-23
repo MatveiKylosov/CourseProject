@@ -28,16 +28,11 @@ namespace CourseProject.Elements
 
             if(sale != null )
             {
-                FIO_client.Text = MainWindow.mainWindow.clients.Find(x => x.ID_client == sale.ID_client).first_name;
-                FIO_employee.Text = MainWindow.mainWindow.employees.Find(x => x.ID_employee == sale.ID_employee).first_name;
-                Table_classes.Car car = MainWindow.mainWindow.cars.Find(x => x.ID_car == sale.ID_car);
-                Name_car.Text = $"{car.brand} {car.model}";
 
-                if (sale.ID_stock == -1)
-                    Name_stock.Text = "Отсутствует";
-                else 
-                    Name_stock.Text = MainWindow.mainWindow.stocks.Find(x => x.ID_stock == sale.ID_stock).ToString();
-
+                FIO_client.Text = $"{sale.client.surname} {sale.client.first_name} {sale.client.patronymic}";
+                FIO_employee.Text = $"{sale.employee.surname} {sale.employee.first_name}  {sale.employee.patronymic}";
+                Name_car.Text = $"{sale.car.brand} {sale.car.model}";
+                Name_stock.Text = sale.stock.name;
                 finally_price.Text = sale.finally_price.ToString();
                 sale_date_time.Text = sale.sale_date_time.ToString();
             }
