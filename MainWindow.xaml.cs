@@ -22,6 +22,8 @@ namespace CourseProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        Windows.FilterWindow filterWindow = new Windows.FilterWindow();
+        
         public List<Table_classes.Car> cars = new List<Table_classes.Car>();
         public List<Table_classes.Client> clients = new List<Table_classes.Client>();
         public List<Table_classes.Employee> employees = new List<Table_classes.Employee>();
@@ -31,15 +33,16 @@ namespace CourseProject
 
         public static MainWindow mainWindow;
 
-        enum tabels { 
+        public enum tabels { 
             cars = 0,
             clients = 1,
             employees = 2,
             sales = 3,
             stocks = 4,
+            nothing
         }
         
-        tabels ActiveTabels;
+        tabels ActiveTabels = tabels.nothing;
 
         public MainWindow()
         {
@@ -72,12 +75,13 @@ namespace CourseProject
                 Table_classes.Sale sale = new Table_classes.Sale(i, client, employee, car, stock, random.Next(50000, 100000), DateTime.Now.AddDays(random.Next(-365, 365)));
                 sales.Add(sale);
             }
-
         }
 
         public void OpenFilter(object sender, RoutedEventArgs e)
         {
-
+            filterWindow.Settings(ActiveTabels);
+            filterWindow.ShowDialog();
+            
         }
 
         public void OpenClient(object sender, RoutedEventArgs e)

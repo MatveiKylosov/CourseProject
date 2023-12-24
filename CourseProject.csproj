@@ -64,6 +64,21 @@
     <Compile Include="Elements\Employee.xaml.cs">
       <DependentUpon>Employee.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Elements\Filter\CarFilter.xaml.cs">
+      <DependentUpon>CarFilter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\Filter\ClientFilter.xaml.cs">
+      <DependentUpon>ClientFilter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\Filter\EmployeeFilter.xaml.cs">
+      <DependentUpon>EmployeeFilter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\Filter\SellFilter.xaml.cs">
+      <DependentUpon>SellFilter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\Filter\StockFilter.xaml.cs">
+      <DependentUpon>StockFilter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Elements\Sell.xaml.cs">
       <DependentUpon>Sell.xaml</DependentUpon>
     </Compile>
@@ -75,6 +90,9 @@
     <Compile Include="Table classes\Stock.cs" />
     <Compile Include="Table classes\Sale.cs" />
     <Compile Include="Table classes\Employee.cs" />
+    <Compile Include="Windows\FilterWindow.xaml.cs">
+      <DependentUpon>FilterWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Elements\Car.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -84,6 +102,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Elements\Employee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Elements\Filter\CarFilter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Elements\Filter\ClientFilter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Elements\Filter\EmployeeFilter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Elements\Filter\SellFilter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Elements\Filter\StockFilter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -108,6 +146,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Themes\Stylel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\FilterWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -144,5 +186,6 @@
   <ItemGroup>
     <Resource Include="Images\plus.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
