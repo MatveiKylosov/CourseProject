@@ -47,7 +47,7 @@ namespace CourseProject
         public MainWindow()
         {
             InitializeComponent();
-            this.MouseDown += Window_MouseDown;
+
             mainWindow = this;
             Random random = new Random();
             string[] brands = { "Toyota", "Honda", "Ford", "Chevrolet", "Mercedes" };
@@ -80,8 +80,7 @@ namespace CourseProject
         public void OpenFilter(object sender, RoutedEventArgs e)
         {
             filterWindow.Settings(ActiveTabels);
-            filterWindow.ShowDialog();
-            
+            filterWindow.ShowDialog();           
         }
 
         public void OpenClient(object sender, RoutedEventArgs e)
@@ -150,33 +149,50 @@ namespace CourseProject
                 PanelOut.Children.Add(new Elements.Sell(x));
         }
 
-
-        //Windows methods
-        private void MainWindow_StateChanged(object sender, EventArgs e)
+        private void LogB_Click(object sender, RoutedEventArgs e)
         {
-            if (this.WindowState == WindowState.Maximized)
+            if (Login.Text == "Matvei" && Password.Password.ToString() == "Asdfg123")
+                LogRegGrid.Visibility = Visibility.Hidden;
+            
+            else
+                MessageBox.Show("Не правильные данные");
+        }
+
+        private void RegB_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(Login.Text) || string.IsNullOrEmpty(Password.Password.ToString()))
             {
-                Panel.Margin = new Thickness(0, 5, 0, 0);
-                this.MaxHeight = SystemParameters.WorkArea.Height + 7;
-                this.MaxWidth = SystemParameters.WorkArea.Width + 7;
+                MessageBox.Show("Заполните все поля.");
+                return;
             }
-            else if (this.WindowState == WindowState.Normal)
+            else
             {
-                Panel.Margin = new Thickness(0, 0, 0, 0);
-                this.MaxHeight = double.PositiveInfinity;
-                this.MaxWidth = double.PositiveInfinity;
+                LogRegButton.Content = "Войти";
+                LogRegButton.Click -= RegB_Click;
+                LogRegButton.Click += LogB_Click;
             }
         }
 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Reg_Click(object sender, MouseButtonEventArgs e)
         {
-            if (e.ChangedButton == MouseButton.Left)
-                this.DragMove();
+            LogRegButton.Content = "Зарегистрироваться";
+            LogRegLabel.Content = "Войти";
+
+            LogRegButton.Click -= LogB_Click;
+            LogRegButton.Click += RegB_Click;
+            LogRegLabel.MouseLeftButtonDown -= Reg_Click;
+            LogRegLabel.MouseLeftButtonDown += Log_Click;
         }
 
-        private void State_Click(object sender, RoutedEventArgs e) => Application.Current.MainWindow.WindowState = Application.Current.MainWindow.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+        private void Log_Click(object sender, MouseButtonEventArgs e)
+        {
+            LogRegButton.Content = "Войти";
+            LogRegLabel.Content = "Зарегистрироваться";
 
-        private void Minimize_Click(object sender, RoutedEventArgs e) => Application.Current.MainWindow.WindowState = WindowState.Minimized;
-        private void Close_Click(object sender, RoutedEventArgs e) => this.Close();
+            LogRegButton.Click += LogB_Click;
+            LogRegButton.Click -= RegB_Click;
+            LogRegLabel.MouseLeftButtonDown += Reg_Click;
+            LogRegLabel.MouseLeftButtonDown -= Log_Click;
+        }
     }
 }

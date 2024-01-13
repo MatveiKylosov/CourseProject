@@ -6,34 +6,19 @@
         xmlns:local="clr-namespace:CourseProject"
         mc:Ignorable="d"
         
-        WindowStyle="None"
-        StateChanged="MainWindow_StateChanged"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         MinHeight="450" MinWidth="820" 
-        Height="450" Width="820"
-        ResizeMode="CanResizeWithGrip" AllowsTransparency="True">
+        Height="450" Width="820">
     <Border x:Name="MainBorder" Background="#2b3734" Opacity="1">
         <Grid>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="15"/>
             </Grid.RowDefinitions>
 
-            <Grid x:Name="Panel" Grid.Row="0" Margin="0,0,0,0" Grid.Column="1" Background="#4a6255">
-                <Label Content="MazAuto" Foreground="#ffffff" FontWeight="Bold" Opacity="0.5" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15,0,0,0"/>
-                <!--Border Background="Transparent" BorderBrush="w#3f3f3f" BorderThickness="0,0,0,1" CornerRadius="2" Margin="20,25,20,0" /-->
-                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Margin="0,0,0,0">
-                    <Button Width="20" Height="20" Click="Minimize_Click" Content="🗕" Background="Transparent" BorderThickness="0" Foreground="#f1f1f1" FontWeight="Bold" Margin="0, 0, 0, 3"/>
-                    <Button Width="20" Height="20" Click="State_Click" Margin="2.5,0,0,0" Content="☐" Background="Transparent" BorderThickness="0" Foreground="#f1f1f1" FontWeight="Bold"/>
-                    <Button Width="20" Height="20" Margin="2.5,0,10,0" Click="Close_Click" Content="✕" Background="Transparent" BorderThickness="0" Foreground="#f1f1f1" FontWeight="Bold"/>
-                </StackPanel>
-            </Grid>
-
-            <StackPanel Grid.Row="1" Margin="0,20,0,0" Orientation="Vertical">
+            <StackPanel Grid.Row="0" Margin="0,20,0,0" Orientation="Vertical">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Click="OpenClient" x:Name="ButtonClient" Height="50" Width="120" Style="{StaticResource GlowButton}" Foreground="White" FontWeight="Bold" FontSize="15" Margin="5" Content="Клиенты" />
                     <Button Click="OpenStaff" x:Name="ButtonStaff" Height="50" Width="120" Style="{StaticResource GlowButton}" Foreground="White" FontWeight="Bold" FontSize="15" Margin="5" Content="Сотрудники"/>
@@ -44,7 +29,7 @@
                 </StackPanel>
             </StackPanel>
 
-            <Grid Grid.Row="2" >
+            <Grid Grid.Row="1">
                 <ScrollViewer x:Name="scroll_main" VerticalScrollBarVisibility="Auto" Margin="0,20,0,0">
                     <Grid Width="{Binding ElementName=scroll_main, Path=ActualWidth}">
                         <WrapPanel x:Name="PanelOut" Orientation="Horizontal" HorizontalAlignment="Center">
@@ -54,10 +39,16 @@
                 </ScrollViewer>
             </Grid>
 
-            <Grid Grid.Row="3" Background="#4a6255"/>
+            <Grid Grid.Row="0" Grid.RowSpan="2" Background="#2b3734" Visibility="Visible" x:Name="LogRegGrid">
 
-            <Grid Grid.Row="1" Grid.RowSpan="2" Background="#2b3734" Visibility="Hidden">
-                        <!--Вход-->
+                <Label Content="Логин" Foreground="White" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,185,150"/>
+                <TextBox x:Name="Login" Style="{StaticResource TB}" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" Height="25" Margin="0,0,0,90"/>
+
+                <Label Content="Пароль" Foreground="White" FontWeight="Bold" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,175,0"/>
+                <PasswordBox x:Name="Password" Style="{StaticResource PB}" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Width="250" Height="25" Margin="0,149,0,90"/>
+
+                <Button x:Name="LogRegButton" Content="Войти" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,150,0,0" Style="{StaticResource FormButton}" Width="250" Height="26" Foreground="White" FontSize="20" Click="LogB_Click"/>
+                <Label x:Name="LogRegLabel" Content="Регистрация" Foreground="#BFBFBF" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,215,0,0" MouseLeftButtonDown="Reg_Click"/>
             </Grid>
         </Grid>
     </Border>
